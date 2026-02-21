@@ -38,10 +38,12 @@ export function RegisterPage(): React.ReactNode {
                 last_name: lastName,
                 role,
             });
+
             navigate("/dashboard");
         } catch (err: unknown) {
             if (err && typeof err === "object" && "response" in err) {
                 const axiosErr = err as { response?: { data?: { error?: string } } };
+
                 setError(axiosErr.response?.data?.error || "Registration failed. Please try again.");
             } else {
                 setError("Registration failed. Please try again.");
@@ -72,8 +74,8 @@ export function RegisterPage(): React.ReactNode {
                                 type="button"
                                 onClick={() => setRole(r.value)}
                                 className={`p-3 rounded-lg border text-center transition-all duration-200 cursor-pointer ${role === r.value
-                                        ? "border-[var(--color-primary)] bg-blue-50 text-[var(--color-primary)]"
-                                        : "border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-gray-300"
+                                    ? "border-[var(--color-primary)] bg-blue-50 text-[var(--color-primary)]"
+                                    : "border-[var(--color-border)] text-[var(--color-text-secondary)] hover:border-gray-300"
                                     }`}
                             >
                                 <p className="text-sm font-medium">{r.label}</p>

@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { Card } from "@/shared/ui/Card";
+import { Button } from "@/shared/ui/Button";
 
 export function PatientDashboard(): React.ReactNode {
     const { user } = useAuth();
@@ -14,6 +16,23 @@ export function PatientDashboard(): React.ReactNode {
                 <p className="text-[var(--color-text-secondary)] mt-1">
                     Your health dashboard — manage your records, consents, and trial eligibility.
                 </p>
+            </div>
+
+            {/* AI Triage CTA */}
+            <div className="p-6 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+                <div className="flex items-center justify-between">
+                    <div>
+                        <h2 className="text-xl font-bold mb-1">🩺 AI-Powered Triage</h2>
+                        <p className="text-blue-100 text-sm">
+                            Describe your symptoms or upload a medical image for instant, private AI analysis — works offline.
+                        </p>
+                    </div>
+                    <Link to="/dashboard/patient/triage">
+                        <Button variant="secondary" size="lg">
+                            Start Assessment
+                        </Button>
+                    </Link>
+                </div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">

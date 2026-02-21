@@ -10,6 +10,7 @@ import { PatientDashboard } from "@/features/dashboard/PatientDashboard";
 import { ClinicianDashboard } from "@/features/dashboard/ClinicianDashboard";
 import { SponsorDashboard } from "@/features/dashboard/SponsorDashboard";
 import { DashboardLayout } from "@/shared/layout/DashboardLayout";
+import { TriagePage } from "@/features/triage/TriagePage";
 
 function ProtectedRoute({
     children,
@@ -83,11 +84,31 @@ export function AppRouter(): React.ReactNode {
                 }
             />
             <Route
+                path="/dashboard/patient/triage"
+                element={
+                    <ProtectedRoute allowedRoles={["PATIENT"]}>
+                        <DashboardLayout>
+                            <TriagePage />
+                        </DashboardLayout>
+                    </ProtectedRoute>
+                }
+            />
+            <Route
                 path="/dashboard/clinician"
                 element={
                     <ProtectedRoute allowedRoles={["CLINICIAN"]}>
                         <DashboardLayout>
                             <ClinicianDashboard />
+                        </DashboardLayout>
+                    </ProtectedRoute>
+                }
+            />
+            <Route
+                path="/dashboard/clinician/triage"
+                element={
+                    <ProtectedRoute allowedRoles={["CLINICIAN"]}>
+                        <DashboardLayout>
+                            <TriagePage />
                         </DashboardLayout>
                     </ProtectedRoute>
                 }
