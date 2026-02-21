@@ -8,7 +8,7 @@ export function LandingPage(): React.ReactNode {
         <div className="min-h-screen bg-white">
             {/* Navigation */}
             <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-[var(--color-border)]">
-                <div className="max-w-[var(--max-width)] mx-auto px-6 h-16 flex items-center justify-between">
+                <div className="max-w-[var(--max-width)] mx-auto p-6 flex items-center justify-between">
                     <Logo size="md" />
                     <div className="flex items-center gap-6">
                         <a href="#features" className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors">
@@ -31,7 +31,7 @@ export function LandingPage(): React.ReactNode {
             </nav>
 
             {/* Hero */}
-            <section className="pt-32 pb-20 px-6">
+            <section className="py-32 px-6">
                 <div className="max-w-[var(--max-width)] mx-auto text-center">
                     <div className="animate-fade-in-up">
                         <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-[var(--color-primary)] mb-6">
