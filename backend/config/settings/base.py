@@ -165,10 +165,11 @@ SIMPLE_JWT = {
 # CORS
 # ---------------------------------------------------------------------------
 
-CORS_ALLOWED_ORIGINS = [
+CORS_ALLOWED_ORIGINS = config(
     "CORS_ALLOWED_ORIGINS",
-    "http://localhost:5173",
-    "http://localhost:5174",
+    default="http://localhost:5173,http://localhost:5174",
+    cast=Csv(),
+) + [
     "https://diagmed-mvp.netlify.app",
     "https://cavista-quadcore.onrender.com",
 ]
