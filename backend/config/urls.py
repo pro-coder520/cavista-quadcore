@@ -2,7 +2,6 @@
 URL configuration for Cavista AG.
 """
 
-import django.contrib.auth.management.commands.changepassword
 from django.contrib import admin
 from django.urls import include, path
 

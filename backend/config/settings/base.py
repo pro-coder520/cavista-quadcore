@@ -2,7 +2,6 @@
 Django base settings for Cavista AG - Equitable Triage & Trial Engine.
 """
 
-import os
 from datetime import timedelta
 from pathlib import Path
 
@@ -60,9 +59,9 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # ---------------------------------------------------------------------------
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -166,11 +165,12 @@ SIMPLE_JWT = {
 # CORS
 # ---------------------------------------------------------------------------
 
-CORS_ALLOWED_ORIGINS = config(
+CORS_ALLOWED_ORIGINS = [
     "CORS_ALLOWED_ORIGINS",
-    default="http://localhost:5173,http://localhost:5174",
-    cast=Csv(),
-)
+    "http://localhost:5173,http://localhost:5174",
+    "htps://diagmed-mvp.netlify.app",
+    "https://cavista-quadcore.onrender.com",
+]
 
 CORS_ALLOW_CREDENTIALS = True
 
