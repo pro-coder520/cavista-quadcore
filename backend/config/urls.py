@@ -17,5 +17,5 @@ urlpatterns = [
     path("api/v1/clinicians/", include("apps.clinicians.api.urls")),
 ]
 =======
-]
+
 >>>>>>> Stashed changes
